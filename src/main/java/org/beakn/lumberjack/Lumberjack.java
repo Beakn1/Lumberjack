@@ -6,6 +6,7 @@ public final class Lumberjack extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        PluginProvider.setPlugin(this);
         LumberConfig.createConfig(this);
         getServer().getPluginManager().registerEvents(new BreakListener(), this);
         getLogger().info("Lumberjack Plugin started Successfully.");

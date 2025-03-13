@@ -22,6 +22,7 @@ public class LumberConfig {
             }
         }
         config = YamlConfiguration.loadConfiguration(configFile);
+        config.addDefault("progressiveBreak", true);
         config.addDefault("particles", true);
         config.addDefault("sound", true);
         config.options().copyDefaults(true);
@@ -35,6 +36,10 @@ public class LumberConfig {
             plugin.getLogger().warning("Error when saving Lumberjack config.");
             e.printStackTrace();
         }
+    }
+
+    public static boolean isProgressiveBreakEnabled() {
+        return config.getBoolean("progressiveBreak", true);
     }
 
     public static boolean isParticlesEnabled() {
